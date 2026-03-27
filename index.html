@@ -313,7 +313,32 @@
     <a href="#">Aide & Support</a>
     <a href="#">Signaler une fraude</a>
   </div>
+<script>
+const button = document.getElementById("theme-toggle");
 
+if (button) {
+
+  // Charger mode sauvegardé
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    button.textContent = "☀️";
+  }
+
+  // Click
+  button.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      button.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "light");
+      button.textContent = "🌙";
+    }
+  });
+
+}
+</script>
   <!-- SÉPARATION -->
   <div class="footer-divider"></div>
 
@@ -329,33 +354,5 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const button = document.getElementById("theme-toggle");
-
-  if (!button) return;
-
-  // Charger mode sauvegardé
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    button.textContent = "☀️";
-  }
-
-  // Click
-  button.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-      button.textContent = "☀️";
-    } else {
-      localStorage.setItem("theme", "light");
-      button.textContent = "🌙";
-    }
-  });
-
-});
-</script>
 </body>
 </html>
