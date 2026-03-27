@@ -332,15 +332,13 @@
 
 
 
-<script src="script.js"></script>
 <script>
 const button = document.getElementById("theme-toggle");
-const icon = button.querySelector("i");
 
 // charger mode sauvegardé
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
-  icon.classList.replace("fa-moon", "fa-sun");
+  button.textContent = "☀️";
 }
 
 // click
@@ -349,14 +347,12 @@ button.addEventListener("click", () => {
 
   if (document.body.classList.contains("dark-mode")) {
     localStorage.setItem("theme", "dark");
-    icon.classList.replace("fa-moon", "fa-sun");
+    button.textContent = "☀️";
   } else {
     localStorage.setItem("theme", "light");
-    icon.classList.replace("fa-sun", "fa-moon");
+    button.textContent = "🌙";
   }
 });
-
 </script>
-
 </body>
 </html>
