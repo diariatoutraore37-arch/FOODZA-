@@ -329,29 +329,32 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-
-
-
 <script>
-const button = document.getElementById("theme-toggle");
+document.addEventListener("DOMContentLoaded", function () {
 
-// charger mode sauvegardé
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-  button.textContent = "☀️";
-}
+  const button = document.getElementById("theme-toggle");
 
-// click
-button.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
+  if (!button) return;
 
-  if (document.body.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
+  // Charger mode sauvegardé
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
     button.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    button.textContent = "🌙";
   }
+
+  // Click
+  button.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      button.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "light");
+      button.textContent = "🌙";
+    }
+  });
+
 });
 </script>
 </body>
