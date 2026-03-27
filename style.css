@@ -1009,3 +1009,72 @@ body.dark-mode p {
 .foodza-footer a {
   color: #fff !important;
 }
+/* =============================== */
+/* BOUTON DARK MODE (FIXE PROPRE) */
+/* =============================== */
+.theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: none;
+
+  background: rgba(0,0,0,0.5);
+  color: white;
+  cursor: pointer;
+
+  backdrop-filter: blur(6px);
+}
+
+/* =============================== */
+/* SAFE ZONE SCROLL BUTTON */
+/* =============================== */
+.scroll-btn {
+  bottom: 40px;
+}
+
+/* =============================== */
+/* MODE SOMBRE - SECTIONS BLANCHES */
+/* =============================== */
+body.dark-mode .foodza-story,
+body.dark-mode .foodza-manifesto {
+  background-color: #121212;
+}
+
+/* =============================== */
+/* NE PAS TOUCHER FOOTER */
+/* =============================== */
+.foodza-footer {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* =============================== */
+/* FIX MOBILE - STACK SECTION */
+/* =============================== */
+@media (max-width: 768px) {
+  .foodza-stack-section {
+    background: white; /* enlève le fond noir */
+    height: auto;
+    padding: 60px 0;
+  }
+}
+
+/* =============================== */
+/* AMÉLIORATION HAUTEUR STACK */
+/* =============================== */
+.foodza-stack-section {
+  min-height: 200vh;
+}
+
+/* =============================== */
+/* CENTRAGE BOUTONS */
+/* =============================== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
