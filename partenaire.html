@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Devenir partenaire - Foodza</title>
+
+  <!-- TON CSS FORMULAIRE -->
+  <link rel="stylesheet" href="form.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="form-box">
+  <h2>🚗 Devenir chauffeur</h2>
+
+  <p style="font-size:14px; color:#666;">
+    Rejoignez Foodza et commencez à gagner de l’argent
+  </p>
+
+  <a href="index.html">⬅ Retour</a>
+
+  <form id="form" action="https://formspree.io/f/mqegyzqg" method="POST">
+
+    <input type="text" name="nom" placeholder="Nom complet" required>
+    <input type="tel" name="telephone" placeholder="Téléphone" required>
+    <input type="text" name="ville" placeholder="Ville" required>
+
+    <button type="submit" id="btn">Envoyer</button>
+  </form>
+
+  <p id="success">✅ Demande envoyée !</p>
+</div>
+
+<script>
+const form = document.getElementById("form");
+const btn = document.getElementById("btn");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  btn.textContent = "Envoi...";
+  btn.disabled = true;
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(() => {
+  window.location.href = "merci.html";
+    document.getElementById("success").style.display = "block";
+    form.reset();
+    btn.textContent = "Envoyer";
+    btn.disabled = false;
+  });
+});
+</script>
+
+</body>
+</html>
